@@ -35,4 +35,12 @@ class GoogleMerchant
             (array)$title[0] = $productTitle;
         }
     }
+
+    /**
+     * @return string
+     */
+    public function toXml(): bool
+    {
+        return self::$_xmlData->saveXML('file.xml');
+    }
 }

@@ -19,6 +19,7 @@ class GoogleMerchantController extends Controller
         $googleMerchant = GoogleMerchant::fromXml($xml);
         $googleMerchant->getTitle();
         $googleMerchant->setTitle('好吃唷');
+        $googleMerchant->toXml();
     }
 
     public function fetchTestXml()
