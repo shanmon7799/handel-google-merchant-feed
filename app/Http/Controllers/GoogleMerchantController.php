@@ -16,7 +16,9 @@ class GoogleMerchantController extends Controller
     public function index()
     {
         $xml = $this->fetchTestXml();
-        GoogleMerchant::fromXml($xml);
+        $googleMerchant = GoogleMerchant::fromXml($xml);
+
+        return $googleMerchant->getTitle();
     }
 
     public function fetchTestXml()

@@ -17,4 +17,12 @@ class GoogleMerchant
 
         return new self;
     }
+
+    /**
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return (string)self::$_xmlData->xpath('//g:title')[0];
+    }
 }
