@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
 use App\Http\Service\GoogleMerchant;
@@ -17,6 +16,7 @@ class GoogleMerchantController extends Controller
     public function index()
     {
         $xml = $this->fetchTestXml();
+        GoogleMerchant::fromXml($xml);
     }
 
     public function fetchTestXml()
