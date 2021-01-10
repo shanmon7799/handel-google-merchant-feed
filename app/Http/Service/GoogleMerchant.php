@@ -25,4 +25,14 @@ class GoogleMerchant
     {
         return (string)self::$_xmlData->xpath('//g:title')[0];
     }
+
+    /**
+     * @param string $productTitle
+     */
+    public function setTitle($productTitle)
+    {
+        foreach (self::$_xmlData->xpath('//g:title') as $title) {
+            (array)$title[0] = $productTitle;
+        }
+    }
 }
