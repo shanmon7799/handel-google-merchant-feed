@@ -55,6 +55,32 @@ class GoogleMerchantTest extends TestCase
         $this->assertEquals($title, $expect);
     }
 
+    public function testGetDescription()
+    {
+        // arrange
+        $googleMerchant = GoogleMerchant::fromXml($this->xml);
+
+        // act
+        $description = $googleMerchant->getDescription();
+
+        // assert
+        $this->assertEquals($description, '《有品味的營養口糧》-La PÂTISSERIE de WACA');
+    }
+
+    public function testSetDescription()
+    {
+        // arrange
+        $expect = '卡滋';
+        $googleMerchant = GoogleMerchant::fromXml($this->xml);
+
+        // act
+        $googleMerchant->setDescription($expect);
+        $description = $googleMerchant->getDescription();
+
+        // assert
+        $this->assertEquals($description, $expect);
+    }
+
     public function testToXml()
     {
         // arrange

@@ -7,6 +7,8 @@ class GoogleMerchant
     public static $_xmlData;
 
     /**
+     * Cache xml data and return self instance
+     *
      * @param string $xml
      *
      * @return self
@@ -19,6 +21,9 @@ class GoogleMerchant
     }
 
     /**
+     * Get item title from google merchant feed xml file
+     * maximum string 150
+     *
      * @return string
      */
     public function getTitle(): string
@@ -27,6 +32,10 @@ class GoogleMerchant
     }
 
     /**
+     *
+     * Modify item title from google merchant feed xml file
+     * maximum string 150
+     *
      * @param string $productTitle
      */
     public function setTitle($productTitle)
@@ -37,6 +46,33 @@ class GoogleMerchant
     }
 
     /**
+     * Get item description from google merchant feed xml file
+     * maximum string 500
+     *
+     * @return string
+     */
+    public function getDescription(): string
+    {
+        return (string)self::$_xmlData->xpath('//g:description')[0];
+    }
+
+    /**
+     *
+     * Modify item description from google merchant feed xml file
+     * maximum string 500
+     *
+     * @param string $productDescription
+     */
+    public function setDescription($productDescription)
+    {
+        foreach (self::$_xmlData->xpath('//g:description') as $description) {
+            (array)$description[0] = $productDescription;
+        }
+    }
+
+    /**
+     * Save as Xml file
+     *
      * @return string
      */
     public function toXml(): bool
