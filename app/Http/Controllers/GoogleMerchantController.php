@@ -21,6 +21,8 @@ class GoogleMerchantController extends Controller
         $googleMerchant->setTitle('Hello Title');
         $googleMerchant->getDescription();
         $googleMerchant->setDescription('Hello Description');
+        $googleMerchant->getPrice();
+        $googleMerchant->setPrice('100 TWD');
         $googleMerchant->toXml();
     }
 

@@ -81,6 +81,32 @@ class GoogleMerchantTest extends TestCase
         $this->assertEquals($description, $expect);
     }
 
+    public function testGetPrice()
+    {
+        // arrange
+        $googleMerchant = GoogleMerchant::fromXml($this->xml);
+
+        // act
+        $price = $googleMerchant->getPrice();
+
+        // assert
+        $this->assertEquals($price, '190 TWD');
+    }
+
+    public function testSetPrice()
+    {
+        // arrange
+        $expect = '100 TWD';
+        $googleMerchant = GoogleMerchant::fromXml($this->xml);
+
+        // act
+        $googleMerchant->setPrice($expect);
+        $price = $googleMerchant->getPrice();
+
+        // assert
+        $this->assertEquals($price, $expect);
+    }
+
     public function testToXml()
     {
         // arrange

@@ -71,6 +71,29 @@ class GoogleMerchant
     }
 
     /**
+     * Get item price from google merchant feed xml file
+     *
+     * @return string
+     */
+    public function getPrice(): string
+    {
+        return trim(self::$_xmlData->xpath('//g:price')[0]);
+    }
+
+    /**
+     *
+     * Modify item price from google merchant feed xml file
+     *
+     * @param string $productPrice
+     */
+    public function setPrice($productPrice)
+    {
+        foreach (self::$_xmlData->xpath('//g:price') as $price) {
+            (array)$price[0] = $productPrice;
+        }
+    }
+
+    /**
      * Save as Xml file
      *
      * @return string
