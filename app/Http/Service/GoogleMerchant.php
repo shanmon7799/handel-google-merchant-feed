@@ -22,7 +22,6 @@ class GoogleMerchant
 
     /**
      * Get item title from google merchant feed xml file
-     * maximum string 150
      *
      * @return string
      */
@@ -40,14 +39,17 @@ class GoogleMerchant
      */
     public function setTitle($productTitle)
     {
-        foreach (self::$_xmlData->xpath('//g:title') as $title) {
-            (array)$title[0] = $productTitle;
+        if (strlen($productTitle) > 150) {
+            echo "over than 150";
+        } else {
+            foreach (self::$_xmlData->xpath('//g:title') as $title) {
+                (array)$title[0] = $productTitle;
+            }
         }
     }
 
     /**
      * Get item description from google merchant feed xml file
-     * maximum string 500
      *
      * @return string
      */
@@ -65,8 +67,12 @@ class GoogleMerchant
      */
     public function setDescription($productDescription)
     {
-        foreach (self::$_xmlData->xpath('//g:description') as $description) {
-            (array)$description[0] = $productDescription;
+        if (strlen($productDescription) > 500) {
+            echo "over than 500";
+        } else {
+            foreach (self::$_xmlData->xpath('//g:description') as $description) {
+                (array)$description[0] = $productDescription;
+            }
         }
     }
 
