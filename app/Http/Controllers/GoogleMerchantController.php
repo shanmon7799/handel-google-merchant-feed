@@ -6,13 +6,6 @@ use App\Http\Service\GoogleMerchant;
 
 class GoogleMerchantController extends Controller
 {
-    protected $googleMerchant;
-
-    public function __construct(GoogleMerchant $googleMerchant)
-    {
-        $this->googleMerchantSer = $googleMerchant;
-    }
-
     public function index()
     {
         $xml = $this->fetchTestXml();
